@@ -1,6 +1,9 @@
 FROM ubuntu:18.04
 MAINTAINER Fabapp Pipelines
 
+ENV TZ=America/Sao_Paulo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Install base dependencies
 RUN apt-get update \
     && apt-get install -y \
