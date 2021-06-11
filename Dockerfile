@@ -2,8 +2,7 @@ FROM ubuntu:18.04
 MAINTAINER Fabapp Pipelines
 
 # Install base dependencies
-RUN add-apt-repository -y ppa:ondrej/php \
-    && apt-get update \
+RUN apt-get update \
     && apt-get install -y \
         software-properties-common \
         build-essential \
@@ -15,7 +14,14 @@ RUN add-apt-repository -y ppa:ondrej/php \
         php7.2-curl \
         php7.2-cli \
         php7.2-common \
-        iputils-ping \
+        iputils-ping
+
+RUN add-apt-repository -y ppa:ondrej/php \
+    && apt-get update \
+    && apt-get install -y \
+        php7.2-curl \
+        php7.2-cli \
+        php7.2-common \
     && rm -rf /var/lib/apt/lists/*
 
 # Install nvm with node and npm
