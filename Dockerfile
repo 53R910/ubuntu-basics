@@ -2,7 +2,8 @@ FROM ubuntu:18.04
 MAINTAINER Fabapp Pipelines
 
 # Install base dependencies
-RUN apt-get update \
+RUN add-apt-repository -y ppa:ondrej/php \
+    && apt-get update \
     && apt-get install -y \
         software-properties-common \
         build-essential \
@@ -11,6 +12,9 @@ RUN apt-get update \
         git \
         ssh-client \
         unzip \
+        php7.2-curl \
+        php7.2-cli \
+        php7.2-common \
         iputils-ping \
     && rm -rf /var/lib/apt/lists/*
 
