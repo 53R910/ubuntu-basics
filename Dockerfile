@@ -11,9 +11,6 @@ RUN apt-get update \
         git \
         ssh-client \
         unzip \
-        php7.2-curl \
-        php7.2-cli \
-        php7.2-common \
         iputils-ping
 
 RUN add-apt-repository -y ppa:ondrej/php \
